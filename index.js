@@ -30,7 +30,7 @@ const swaggerOptions = {
       contact:{
         name:'kris'
       },
-      servers:["http://localhost:5005/api/", "https://met.landscapedatacommons.org/api/"]
+      servers:["http://localhost:5013/api/", "https://met.landscapedatacommons.org/api/"]
     }
   },
   apis:["./routes/*.js"]
@@ -60,25 +60,25 @@ app.get('/', (req, res) => {
   res.send('dima api up')
   })
 
-// app.get('/tables', (req, res)=>{
-//   db.query("select * from pg_catalog.pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema';",{
+app.get('/tables', (req, res)=>{
+  db.query("select count(*) from met_data.public.raw_met_data;",{
   
-//     logging: console.log,
-//     plain: false,
-//     raw: true,
-//     type: QueryTypes.SELECT
-//     })
-//      .then(data=>{
-//       //  console.log(data)
-//        let result = data.map(a=>a.tablename)
-//        res.status(200).send(result)
-//       //  res.render('table.pug', {data:result})
-//      })
-//      .catch(err=>{
-//        console.log(err)
-//      })
-// })
-// 
+    logging: console.log,
+    plain: false,
+    raw: true,
+    type: QueryTypes.SELECT
+    })
+     .then(data=>{
+       console.log(data)
+      //  let result = data.map(a=>a.tablename)
+      //  res.status(200).send(result)
+      //  res.render('table.pug', {data:result})
+     })
+     .catch(err=>{
+       console.log(err)
+     })
+})
+
 
 
 app.use('/api', dimaRoute)
@@ -88,5 +88,5 @@ db
     console.log(err)
   })
   .then(result=>{
-    const server = app.listen(process.env.PORT || 5005)
+    const server = app.listen(process.env.PORT || 5013)
   })
