@@ -57,7 +57,7 @@ db.authenticate()
 
 
 app.get('/', (req, res) => {
-  res.send('dima api up')
+  res.send('met api up')
   })
 
 app.get('/tables', (req, res)=>{
