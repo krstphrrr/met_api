@@ -25,8 +25,8 @@ app.use(bodyparser.urlencoded({ extended: true }));
 const swaggerOptions = {
   swaggerDefinition: {
     info:{
-      title: 'Dima API',
-      description: 'API to serve to dima data',
+      title: 'MET API',
+      description: 'API to serve to MET data',
       contact:{
         name:'kris'
       },
