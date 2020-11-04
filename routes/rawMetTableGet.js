@@ -15,11 +15,27 @@ const router = express.Router()
  *      - application/json
  *    parameters:
  *      - in : query
- *        name: PrimaryKey
- *        schema:
- *          type: string
- *      - in : query
- *        name: DBKey
+ *        name: ProjectKey
+ *        description: "ProjectKey values that need to be considered for filter"
+ *        type: "array"
+ *        items:
+ *          type: "string"
+ *          enum:
+ *          - "Akron"
+ *          - "Bellevue"
+ *          - "BigSpring"
+ *          - "CPER"
+ *          - "ElReno"
+ *          - "Holloman"
+ *          - "JER"
+ *          - "Lordsburg"
+ *          - "Mandan"
+ *          - "Moab"
+ *          - "Morton"
+ *          - "Pullman"
+ *          - "RedHills"
+ *          - "SanLuis"
+ *          - "TwinValley"
  *        schema:
  *          type: string
  *    responses:
